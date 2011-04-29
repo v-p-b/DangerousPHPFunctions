@@ -1,0 +1,14 @@
+This is a list of potentially dangerous PHP functions which should be disabled in most of the environments
+
+The php_dangerous.txt file contains the categorized list of these functions. 
+
+Format: 
+
+    [Category name ]
+    function_name # comment
+
+The generate_ini.sh script generates a php.ini entry from the list. Usage:
+
+generate_ini.sh php_dangerous.txt
+
+
