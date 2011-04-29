@@ -1,0 +1,11 @@
+include
+include_once
+require
+require_once
+preg_replace 
+chown
+chgrp
+file_put_contetns
+fwrite
+fputs
+sleep

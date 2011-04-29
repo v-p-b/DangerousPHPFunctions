@@ -9,11 +9,8 @@ shell_exec
 register_shutdown_function
 register_tick_function
 dl
-preg_replace # /e modifier
 
 [Limited command execution]
-chown
-chgrp
 apache_child_terminate
 link
 posix_kill
@@ -31,18 +28,16 @@ putenv
 alter_ini
 highlight_file
 ini_alter
-file_put_contetns
-fwrite
-fputs
 fputcsv
 ini_get_all
 openlog
 syslog
 
-
 [Network]
 ftp_connect
 ftp_ssl_connect
+fsockopen
+pfsockopen
 socket_bind
 socket_connect
 socket_listen
@@ -64,10 +59,8 @@ getmypid
 getmyuid
 getrusage
 leak
-pfsockopen
 set_time_limit
 show_source
-sleep
 symlink
 tmpfile
 virtual
@@ -76,5 +69,4 @@ phpinfo
 [ Why are these even implemented? ]
 escapeshellcmd
 escapeshellarg
-
 
