@@ -1,6 +1,7 @@
-This is a list of potentially dangerous PHP functions which should be disabled in most of the environments
+This is a list of potentially dangerous PHP functions which should be disabled in most of the PHP web hosting environments.
 
 The php_dangerous.txt file contains the categorized list of these functions. 
+The likely_used.txt file contains functions which can be used dangerously but are required by many applications.
 
 Format: 
 
@@ -11,4 +12,8 @@ The generate_ini.sh script generates a php.ini entry from the list. Usage:
 
 generate_ini.sh php_dangerous.txt
 
+DISCLAIMER
+==========
+
+Use at your own risk! Hardening should always be done in accordance with the current environment.
 
