@@ -9,6 +9,7 @@ shell_exec
 register_shutdown_function
 register_tick_function
 dl
+eval
 
 [Limited command execution]
 apache_child_terminate
