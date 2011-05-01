@@ -59,7 +59,6 @@ get_current_user
 getmypid
 getmyuid
 getrusage
-leak
 set_time_limit
 show_source
 symlink
