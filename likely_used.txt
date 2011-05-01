@@ -5,7 +5,7 @@ require_once
 preg_replace 
 chown
 chgrp
-file_put_contetns
+file_put_contents
 fwrite
 fputs
 sleep
