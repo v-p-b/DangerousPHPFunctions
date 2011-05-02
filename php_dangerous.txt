@@ -29,11 +29,14 @@ touch
 [File access]
 alter_ini
 highlight_file
+show_source
 ini_alter
 fputcsv
 ini_get_all
 openlog
 syslog
+rename
+copy
 
 [Network]
 ftp_connect
@@ -54,6 +57,7 @@ apache_get_version
 apache_getenc
 apache_note
 apache_setenv
+apache_request_headers
 diskfreespace
 disk_free_space
 get_current_user
@@ -66,6 +70,8 @@ symlink
 tmpfile
 virtual
 phpinfo
+parse_ini_file
+max_execution_time
 
 [ Why are these even implemented? ]
 escapeshellcmd

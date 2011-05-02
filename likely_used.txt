@@ -9,3 +9,8 @@ file_put_contents
 fwrite
 fputs
 sleep
+header
+mail
+unlink
+mkdir
+rmdir
