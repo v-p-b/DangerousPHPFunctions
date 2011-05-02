@@ -24,6 +24,7 @@ proc_get_status
 proc_nice
 proc_terminate
 putenv
+touch
 
 [File access]
 alter_ini
