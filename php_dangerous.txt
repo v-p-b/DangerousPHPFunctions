@@ -10,6 +10,7 @@ register_shutdown_function
 register_tick_function
 dl
 eval
+expect_popen
 
 [Limited command execution]
 apache_child_terminate
@@ -31,12 +32,15 @@ alter_ini
 highlight_file
 show_source
 ini_alter
+fgetcsv
 fputcsv
+fpassthru
 ini_get_all
 openlog
 syslog
 rename
 copy
+parse_ini_file
 
 [Network]
 ftp_connect
@@ -70,8 +74,8 @@ symlink
 tmpfile
 virtual
 phpinfo
-parse_ini_file
 max_execution_time
+set_include_path
 
 [ Why are these even implemented? ]
 escapeshellcmd
