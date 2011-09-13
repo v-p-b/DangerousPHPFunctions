@@ -12,13 +12,13 @@ class OptsParse
     OptionParser.new do |opt|
       
       opt.on("-d", "-d <directory>", "path to the directory to search. ex: /var/www/") do |d|
-	    options['dir'] = d
+      options['dir'] = d
       end
       
       opt.on("-o", "-o <out file>", "File to output results to. ex: /var/www/myfile.txt") do |o|
-	    options['outfile'] = o
+      options['outfile'] = o
       end     
-	
+  
       opt.on_tail("-h", "--help", "Show this message") do
        puts opt
        exit
@@ -33,7 +33,7 @@ class OptsParse
       puts "\e[1;31m[error]\e[0m You are missing an argument"
       exit
      end
-	
+  
     end
    options
   end
@@ -269,21 +269,20 @@ end
 
 dangerous_strings_array = []
 
-dangerous_strings = [ 
-  "shell_exec",
-  "passthru",
-  "exec",
-  "pnctl_exec",
-  "proc_open",
-  "popen",
-  "system",
-  "shell_exec",
-  "register_shutdown_function",
-  "register_tick_function",
-  "dl",
-  "eval",
-]
 
+if File.exists?("php_dangerous.txt")
+  dangerous_strings = []
+  dangerous_strings_file = File.open("php_dangerous.txt", "r")
+  dangerous_strings_file.each do |line|
+    line.rstrip!
+    if line.length > 1 and not line =~ /\[(.*)\]/
+       dangerous_strings.push(line)
+    end
+  end 
+else
+  puts "\e[1;31m[Error]\e[0m php_dangerous.txt needs to be in the same directory as dangerous_strings.rb"
+  exit
+end
 
 
 options = OptsParse.parse(ARGV)
@@ -317,18 +316,18 @@ pbar = ProgressBar.new("Processing", file_arry.length)
 index = 0
 file_arry.each_with_index do |f, idx|
   index = idx + 1
- # sleep(0.1)
   pbar.set(index)
   open_file = File.open(f, "r")
   open_file.each {|line|
-    dangerous_strings.each do |str|
-      if line.include?(str)
-       dangerous_strings_array << ([f.to_s,line.to_s,str.to_s])
+    dangerous_strings.each do |l|
+      if l.length > 1 and line.include?(l)
+    dangerous_strings_array << ([f.to_s,line.to_s,l.to_s])
       end
     end
   }  
 end
 pbar.finish
+dangerous_strings_file.close
 
 if File.exists?(outfile)
   File.delete(outfile)
