@@ -301,11 +301,11 @@ end
 file_arry = []
 
 if File.directory?(dir)
-  Find.find(dir) { |file|
-    if file.to_s =~ (/(.\php|.txt)/) and File.directory?(file) == false
+  Find.find(dir) do |file|
+    if File.directory?(file) == false && %w{ .php .txt .hh}.include?(File.extname(file.to_s))
       file_arry.push(file)
-    end  
-  }
+    end
+  end
 else
  puts "\e[1;31m[error]\e[0m The directory you entered does not exist"
  exit
@@ -320,7 +320,7 @@ file_arry.each_with_index do |f, idx|
   open_file = File.open(f, "r")
   open_file.each {|line|
     dangerous_strings.each do |l|
-      if l.length > 1 and line.include?(l)
+      if l.length > 1 and line[/(?<![a-zA-z])#{l}(?![a-zA-Z])/]
     dangerous_strings_array << ([f.to_s,line.to_s,l.to_s])
       end
     end
