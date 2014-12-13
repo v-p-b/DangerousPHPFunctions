@@ -320,7 +320,7 @@ file_arry.each_with_index do |f, idx|
   open_file = File.open(f, "r")
   open_file.each {|line|
     dangerous_strings.each do |l|
-      if l.length > 1 and line[/(?<![a-zA-z])#{l}(?![a-zA-Z])/]
+      if line.length > 1 && !(["//", "* "].include?(line.strip[0..1])) && line[/(?<![a-zA-z])#{l}(?![a-zA-Z])/]
     dangerous_strings_array << ([f.to_s,line.to_s,l.to_s])
       end
     end
