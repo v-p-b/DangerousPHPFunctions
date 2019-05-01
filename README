@@ -1,3 +1,11 @@
+WARNING
+=======
+
+!!! THIS REPO IS HIGHLY OUTDATED, YOU PROBABLY SHOULDN'T USE IT !!! 
+
+README
+======
+
 This is a list of potentially dangerous PHP functions which should be disabled in most of the PHP web hosting environments.
 
 The php_dangerous.txt file contains the categorized list of these functions. 
